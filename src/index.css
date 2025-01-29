@@ -4,9 +4,15 @@ body {
 * {
   box-sizing: border-box;
 }
+form,
+label {
+  text-align: left;
+}
 
 /* Full-width input fields */
 input[type="text"],
+input[type="email"],
+select,
 input[type="password"] {
   width: 100%;
   padding: 15px;
@@ -18,6 +24,7 @@ input[type="password"] {
 
 /* Add a background color when the inputs get focus */
 input[type="text"]:focus,
+select:focus,
 input[type="password"]:focus {
   background-color: #ddd;
   outline: none;

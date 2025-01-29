@@ -1,5 +1,14 @@
-import { createRoot } from "react-dom/client";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
 import "./index.css";
-import App from "./App.tsx";
+import { store } from "./store/store"; // Adjust the path to your store file
+import App from "./App";
 
-createRoot(document.getElementById("root")!).render(<App />);
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
+);
