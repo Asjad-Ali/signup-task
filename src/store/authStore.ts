@@ -4,12 +4,14 @@ import axios from "axios";
 interface AuthState {
   loading: boolean;
   success: boolean;
+  userData: object;
   error: string | null;
 }
 
 const initialState: AuthState = {
   loading: false,
   success: false,
+  userData: {},
   error: null,
 };
 
@@ -32,6 +34,7 @@ export const signupUser = createAsyncThunk(
         "https://django-dev.aakscience.com/signup/",
         userData
       );
+      userData = response.data;
       return response.data;
     } catch (error: any) {
       return rejectWithValue(error.response.data || "Internal error");
@@ -50,9 +53,10 @@ const authSlice = createSlice({
         state.success = false;
         state.error = null;
       })
-      .addCase(signupUser.fulfilled, (state) => {
+      .addCase(signupUser.fulfilled, (state, action) => {
         state.loading = false;
         state.success = true;
+        state.userData = action.payload; // Store response data in userData
       })
       .addCase(signupUser.rejected, (state, action) => {
         state.loading = false;
