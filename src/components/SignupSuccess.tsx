@@ -1,6 +1,10 @@
 import logo from "../assets/images/logo.webp";
+import { CSSProperties } from "react";
+interface SignupSuccessProps {
+  authState: any; // Replace 'any' with the actual type of `authState` if known
+}
 
-const SignupSuccess = ({ authState }) => {
+const SignupSuccess = ({ authState }: SignupSuccessProps) => {
   return (
     <div className="container">
       <div className="card">
@@ -39,7 +43,7 @@ const SignupSuccess = ({ authState }) => {
 };
 
 // Inline CSS styles
-const styles = {
+const styles: { [key: string]: CSSProperties } = {
   successText: {
     color: "green",
     fontSize: "24px",

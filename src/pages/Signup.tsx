@@ -5,11 +5,11 @@ import { signupUser } from "../store/authStore";
 import SignupSuccess from "../components/SignupSuccess"; // Adjust the path if needed
 import logo from "../assets/images/logo.webp";
 import Loader from "../components/Loader"; // Import the loader component
-
+import { AppDispatch } from "../store/store"; // Adjust the path to your store
 import "../assets/css/signup.css";
 
 function Signup() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const authState = useSelector((state: RootState) => state.auth);
 
   const [formData, setFormData] = useState({
@@ -22,7 +22,9 @@ function Signup() {
     country: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
