@@ -1,10 +1,10 @@
 # Step 1: Clone the project repository
 
-git clone <repository_url>
+git clone https://github.com/Asjad-Ali/signup-task.git
 
 # Step 2: Navigate to the project directory
 
-cd <project_directory>
+cd signup-task
 
 # Step 3: Install node_modules
 
@@ -18,6 +18,6 @@ nvm use 18 # If using NVM (Node Version Manager) to switch to Node.js 18
 
 npm run dev
 
-# Step 6: Open the application in your browser by going to the localhost path (e.g., http://localhost:5173)
+# Step 6: Open the application in your browser by going to the localhost path (e.g., http://localhost:3000)
 
 # Step 7: If the sign-up form does not appear, perform a hard refresh (Ctrl + F5 on most browsers)
